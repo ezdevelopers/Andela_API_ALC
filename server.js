@@ -38,8 +38,6 @@ router.use(function (req, res, next) {
 
 //test route
 router.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/app/css/materialize.min.css'));
-    res.sendFile(path.join(__dirname + '/app/css/styles.css'));
     res.sendFile(path.join(__dirname + '/app/index.html'));
 
 });
