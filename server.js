@@ -123,7 +123,7 @@ router.route('/book/:book_id')
     });
 
 //REGISTER ROUTES
-app.use('/', router);
+app.use('/index.html', router);
 app.use('/api', router);
 
 
