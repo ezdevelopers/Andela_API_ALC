@@ -36,7 +36,7 @@ router.use(function (req, res, next) {
 
 //test route
 router.get('/', function (req, res) {
-    res.sendFile('index.html');
+    res.sendFile(__dirname + 'index.html');
     // res.json({
     //     message: "Hooray, welcome to our api!"
     // });
