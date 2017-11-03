@@ -7,7 +7,7 @@ var express = require("express"); //call express
 var app = express(); //define our app using express
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-var Book = require("./app/models/books");
+var Book = require("./app/js/models/books");
 
 mongoose.connect("mongodb://ezechukwu:1234@ds121225.mlab.com:21225/eze");
 
