@@ -35,12 +35,12 @@ router.use(function (req, res, next) {
 });
 
 //test route
-router.get('/', function (req, res) {
-    res.sendFile(__dirname + 'index.html');
-    // res.json({
-    //     message: "Hooray, welcome to our api!"
-    // });
-});
+// router.get('/', function (req, res) {
+//     res.sendFile(__dirname + 'app');
+//     // res.json({
+//     //     message: "Hooray, welcome to our api!"
+//     // });
+// });
 
 //more routes 
 //This route handles request for post and get requests
@@ -127,8 +127,8 @@ router.route('/api/book/:book_id')
     });
 
 //REGISTER ROUTES
-app.use('/', router);
-
+//app.use('/', router);
+app.use(express.static('/app'))
 
 //START SERVER
 app.listen(port);
