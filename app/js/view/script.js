@@ -10,6 +10,8 @@ var ViewModel = function () {
     var self = this;
     self.books = ko.observableArray([]);
 
+    // make an api call to get books then pull the books out of the result 
+    //of the api call and make them observables to be displayed on the index page
     $.ajax({
         type: "GET",
         crossOrigin: true,
@@ -18,18 +20,12 @@ var ViewModel = function () {
         dataType: "json",
     }).done(
         function (allData) {
-            for (var i = 0, len = allData.length; i< len; i++){
+            for (var i = 0, len = allData.length; i < len; i++) {
                 self.books.push(new Book(allData[i]));
             }
         }
     ).fail(function errorFn(xhr, status, strErr) {
         console.log('There seems to be an Error in connection' + strErr);
     });
-    // make an api cal to get books then pull the books out of the result 
-    //of the api call and make them observables
-    // $.getJSON("https://andela-resful.herokuapp.com/api/book", function (allData) {
-    //     var mappedBooks = $.map(allData, function (item) { return new Book(item); });
-    //     self.books(mappedBooks);
-    // });
 }
 ko.applyBindings(new ViewModel());
