@@ -13,7 +13,8 @@
   "dependencies": {
     "express": "*",
     "mongoose": "*",
-    "body-parser": "*"
+    "body-parser": "*",
+    "cors":"*"
   },
   "author": "Emmanuel Eze",
   "license": "ISC"
