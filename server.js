@@ -36,10 +36,15 @@ router.use(function (req, res, next) {
 
 //test route
 router.get('/', function (req, res) {
-    res.sendFile(__dirname + '/app');
+    res.sendFile('/app/index.html');
     // res.json({
     //     message: "Hooray, welcome to our api!"
     // });
+});
+router.get('/api', function (req, res) {
+    res.json({
+        message: "Please use our api path 'api/books'"
+    });
 });
 
 //more routes 
