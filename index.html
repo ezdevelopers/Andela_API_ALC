@@ -13,18 +13,19 @@
 <body>
     <div class="container">
         <h2 class="center">Welcome to Book keeper
+            <a class="waves-effect waves-light btn modal-trigger " href="#modal1 ">Add book</a>
         </h2>
-        <a class="waves-effect waves-light btn modal-trigger " href="#modal1 ">Add book</a>
+
         <div class="row">
-            <div class="col s12 m6" data-bind="foreach:books, visible: books.length > 0 ">
+            <div class="col s12 m6" data-bind="foreach:books, visible: books().length > 0 ">
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
-                        <span class="card-title" data.bind="text:name"></span>
-                        <span class="card-title" data.bind="text:author"></span>
+                        <span class="card-title" data-bind="text:name"></span>
+                        <span class="card-title" data-bind="text:author"></span>
                         <p data-bind="text:description"></p>
                     </div>
                     <div class="card-action">
-                        <a data-bind="click:$parent.deleteBook">Delete</a>
+                        <a href="#" data-bind="click:$parent.deleteBook">Delete</a>
                         <a href="#">Edit</a>
                     </div>
                 </div>
@@ -43,15 +44,15 @@
     </div>
     <script src="app/view/jquery-3.2.1.min.js"></script>
     <script src="app/view/materialize.min.js"></script>
-<script>
-    $(document).ready(function () {
-        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-        $('.modal').modal();
-    });
-</script>
+    <script>
+        $(document).ready(function () {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
+    </script>
     <script src="app/view/knockout.min.js"></script>
     <script src="app/view/script.js"></script>
-    
+
 </body>
 
 </html>

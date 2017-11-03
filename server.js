@@ -31,21 +31,20 @@ var router = express.Router(); // get an instance of express router
 router.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-
     next(); //make sure we go to the next routes and don't stop there.
 });
 
 //test route
 router.get('/', function (req, res) {
-    res.json({
-        message: "Hooray, welcome to our api!"
-    });
+    res.sendFile('index.html');
+    // res.json({
+    //     message: "Hooray, welcome to our api!"
+    // });
 });
 
 //more routes 
 //This route handles request for post and get requests
-router.route('/book')
+router.route('/api/book')
     //post request to add new book
     .post(function (req, res) {
         var book = new Book();
@@ -77,7 +76,7 @@ router.route('/book')
     });
 
 //This route handles request for put and delete requests
-router.route('/book/:book_id')
+router.route('/api/book/:book_id')
     //get a single book by id
     .get(function (req, res) {
         Book.findById(req.params.book_id, function (err, book) {
@@ -128,8 +127,7 @@ router.route('/book/:book_id')
     });
 
 //REGISTER ROUTES
-//app.use('/index.html', router);
-app.use('/api', router);
+app.use('/', router);
 
 
 //START SERVER
