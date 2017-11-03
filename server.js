@@ -133,6 +133,8 @@ router.route('/api/book/:book_id')
 
 //REGISTER ROUTES
 app.use('/', router);
+app.use(express.static('app'));
+
 
 
 //START SERVER
