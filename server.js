@@ -8,6 +8,7 @@ var app = express(); //define our app using express
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var Book = require("./app/js/models/books");
+var path = require('path');
 
 mongoose.connect("mongodb://ezechukwu:1234@ds121225.mlab.com:21225/eze");
 
@@ -29,6 +30,7 @@ var router = express.Router(); // get an instance of express router
 
 //middleware
 router.use(function (req, res, next) {
+    //checking for CORS header
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next(); //make sure we go to the next routes and don't stop there.
