@@ -123,7 +123,9 @@ router.route('/book/:book_id')
     });
 
 //REGISTER ROUTES
+app.use('/', router);
 app.use('/api', router);
+
 
 //START SERVER
 app.listen(port);
