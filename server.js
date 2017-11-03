@@ -3,7 +3,7 @@
 //require everthing we need
 
 var express = require("express"); //call express
-var cors = require('cors')// require Cross Origin Requests
+//var cors = require('cors')// require Cross Origin Requests
 var app = express(); //define our app using express
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
@@ -12,7 +12,7 @@ var Book = require("./app/models/books");
 mongoose.connect("mongodb://ezechukwu:1234@ds121225.mlab.com:21225/eze");
 
 //configure our app to accept Cross Origin Requests
-app.use(cors());
+//app.use(cors());
 //configure our app to use bodyParser()
 //this will let us get data from post
 
@@ -29,8 +29,10 @@ var router = express.Router(); // get an instance of express router
 
 //middleware
 router.use(function (req, res, next) {
-    //do something like check if user is authenticated etc
-    console.log("Something is happening");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+
     next(); //make sure we go to the next routes and don't stop there.
 });
 
@@ -126,7 +128,7 @@ router.route('/book/:book_id')
     });
 
 //REGISTER ROUTES
-app.use('/index.html', router);
+//app.use('/index.html', router);
 app.use('/api', router);
 
 

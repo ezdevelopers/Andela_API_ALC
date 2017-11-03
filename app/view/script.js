@@ -12,7 +12,7 @@ var ViewModel = function () {
 
     // make an api cal to get books then pull the books out of the result 
     //of the api call and make them observables
-    $.getJSON("/api/book/", function (allData) {
+    $.getJSON("https://andela-resful.herokuapp.com/api/book", function (allData) {
         var mappedBooks = $.map(allData, function (item) { return new Book(item); });
         self.tasks(mappedBooks);
     });
