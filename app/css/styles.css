@@ -1,0 +1,8 @@
+.preloader-wrapper {
+    position: absolute;
+    left: 45%;
+    top: 10px;
+    background: #fff;
+    border-radius: 50%;
+    display: none;
+}

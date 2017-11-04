@@ -9,10 +9,12 @@ var Book = function (book) {
 var ViewModel = function () {
 
     $(document).ajaxStart(function () {
+        $(".preloader-wrapper").show()
         console.log("Ajax Request is Starting");
     });
     // Ajax stop global function
     $(document).ajaxStop(function () {
+        $(".preloader-wrapper").hide()
         console.log("Ajax Request has ended");
     });
 
