@@ -38,14 +38,14 @@
                         <p data-bind="text:description"></p>
                     </div>
                     <div class="card-action">
-                        <a href="#" data-bind="click:$parent.deleteBook">Delete</a>
-                        <a href="#">Edit</a>
+                        <a data-bind="click:$parent.deleteBook">Delete</a>
+                        <a class="waves-effect waves-light modal-trigger" data-target="modal2" data-bind="click:$parent.grabBook">Edit</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal Structure -->
+    <!-- Modal Structure  for Adding Book-->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h5>Add a new Book</h5>
@@ -73,7 +73,37 @@
                     </div>
                 </div>
                 <div class="row">
-                    <a class="waves-effect waves-light btn right" data-bind="click:addBook">Add</a>
+                    <a class=" modal-action modal-close waves-effect waves-light btn right" data-bind="click:addBook">Add</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure  for Editing Book-->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h5>Edit Book</h5>
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="editName" type="text" placeholder="Book Name" class="validate" data-bind="textInput: bookName">
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="editAuthor" type="text" placeholder="Author" class="validate" data-bind="textInput: author">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="editIsbn" type="number" class="validate" placeholder="Isbn" data-bind="textInput: isbn">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="editDescription" class="materialize-textarea" data-bind="textInput: description"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class=" modal-action modal-close waves-effect waves-light btn right" data-bind="click:editBook">Edit</a>
                 </div>
             </div>
         </div>
