@@ -35,11 +35,34 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            <h5>Add a new Book</h5>
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="book_name" type="text" class="validate" data-bind="textInput: bookName">
+                        <label for="book_name">Book Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="author" type="text" class="validate" data-bind="textInput: author">
+                        <label for="author">Author</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="isbn" type="number" class="validate" data-bind="textInput: isbn">
+                        <label for="isbn">ISBN</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="description" class="materialize-textarea" data-bind="textInput: description"></textarea>
+                        <label for="description">Summary</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class="waves-effect waves-light btn right" data-bind="click:addBook">Add</a>
+                </div>
+            </div>
         </div>
     </div>
 
