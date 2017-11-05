@@ -78,7 +78,7 @@ var ViewModel = function () {
 
     //grab the clicked book for editing
     self.grabBook = function(item){
-        console.log(item);
+        //console.log(item);
         // document.getElementById("editName").value = item.name();
         // document.getElementById("editAuthor").value = item.author();
         // document.getElementById("editIsbn").value = item.isbn();
@@ -86,13 +86,13 @@ var ViewModel = function () {
     }
     //edit function
     self.editBook = function (item) {
-        var editBook = {
-            "name": self.bookName(),
-            "author": self.author(),
-            "isbn": self.isbn(),
-            "description": self.description()
-        }
-        console.log(item)
+        // var editBook = {
+        //     "name": self.bookName(),
+        //     "author": self.author(),
+        //     "isbn": self.isbn(),
+        //     "description": self.description()
+        // }
+        //console.log(item)
 
     }
 
