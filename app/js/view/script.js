@@ -64,9 +64,7 @@ var ViewModel = function () {
             type: "DELETE",
             crossOrigin: true,
             contentType: 'application/json; charset=UTF-8',
-            url: "/api/book/",
-            data: JSON.stringify(id),
-            processData: true,
+            url: "/api/book/" + id,
             dataType: "json",
         }).done(
             //console.log("deleted")
