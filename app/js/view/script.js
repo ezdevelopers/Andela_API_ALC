@@ -45,7 +45,7 @@ var ViewModel = function () {
                 type: "POST",
                 crossOrigin: true,
                 contentType: 'application/json; charset=UTF-8',
-                url: "https://andela-resful.herokuapp.com/api/book/",
+                url: "/api/book/",
                 data: JSON.stringify(book),
                 processData: true,
                 dataType: "json"
@@ -64,7 +64,9 @@ var ViewModel = function () {
             type: "DELETE",
             crossOrigin: true,
             contentType: 'application/json; charset=UTF-8',
-            url: "https://andela-resful.herokuapp.com/api/book/" + id,
+            url: "/api/book/",
+            data: JSON.stringify(id),
+            processData: true,
             dataType: "json",
         }).done(
             //console.log("deleted")
@@ -76,32 +78,33 @@ var ViewModel = function () {
 
     }
 
-    // //grab the clicked book for editing
-    // self.grabBook = function(item){
-    //     document.getElementById("editName").value = item.name();
-    //     document.getElementById("editAuthor").value = item.author();
-    //     document.getElementById("editIsbn").value = item.isbn();
-    //     document.getElementById("editDescription").value = item.description();
-    // }
-    // //edit function
-    // self.editBook = function (item) {
-    //     var editBook = {
-    //         "name": self.bookName(),
-    //         "author": self.author(),
-    //         "isbn": self.isbn(),
-    //         "description": self.description()
-    //     }
-    //     console.log(item)
+    //grab the clicked book for editing
+    self.grabBook = function(item){
+        console.log(item);
+        // document.getElementById("editName").value = item.name();
+        // document.getElementById("editAuthor").value = item.author();
+        // document.getElementById("editIsbn").value = item.isbn();
+        // document.getElementById("editDescription").value = item.description();
+    }
+    //edit function
+    self.editBook = function (item) {
+        var editBook = {
+            "name": self.bookName(),
+            "author": self.author(),
+            "isbn": self.isbn(),
+            "description": self.description()
+        }
+        console.log(item)
 
-    // }
-    
+    }
+
     // make an api call to get books then pull the books out of the result 
     //of the api call and make them observables to be displayed on the index page
     $.ajax({
         type: "GET",
         crossOrigin: true,
         contentType: 'application/json; charset=UTF-8',
-        url: "https://andela-resful.herokuapp.com/api/book/",
+        url: "/api/book/",
         dataType: "json",
     }).done(
         function (allData) {
