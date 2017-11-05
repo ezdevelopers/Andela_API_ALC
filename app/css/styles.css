@@ -6,3 +6,6 @@
     border-radius: 50%;
     display: none;
 }
+ .card .card-title.small {
+    font-size: 18px ;
+}
