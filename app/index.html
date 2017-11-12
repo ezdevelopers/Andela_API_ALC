@@ -38,7 +38,7 @@
                         <p data-bind="text:description"></p>
                     </div>
                     <div class="card-action">
-                        <a data-bind="click:$parent.deleteBook">Delete</a>
+                        <a class="waves-effect waves-light modal-trigger" data-bind="click:$parent.deleteBook">Delete</a>
                         <a class="waves-effect waves-light modal-trigger" data-target="modal2" data-bind="click:$parent.grabBook">Edit</a>
                     </div>
                 </div>
@@ -52,23 +52,23 @@
             <div class="row">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="book_name" type="text" class="validate" data-bind="textInput: bookName">
-                        <label for="book_name">Book Name</label>
+                        <input id="book" type="text" class="validate" data-bind="textInput: bookName()">
+                        <label for="book">Book</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="author" type="text" class="validate" data-bind="textInput: author">
+                        <input id="author" type="text" class="validate" data-bind="textInput: author()">
                         <label for="author">Author</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="isbn" type="number" class="validate" data-bind="textInput: isbn">
+                        <input id="isbn" type="number" class="validate" data-bind="textInput: isbn()">
                         <label for="isbn">ISBN</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="description" class="materialize-textarea" data-bind="textInput: description"></textarea>
+                        <textarea id="description" class="materialize-textarea" data-bind="textInput: description()"></textarea>
                         <label for="description">Summary</label>
                     </div>
                 </div>
@@ -86,20 +86,20 @@
             <div class="row">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="editName" type="text" placeholder="Book Name" class="validate" data-bind="value: name">
+<input id="editName" type="text" placeholder="Book Name" class="validate" data-bind="value: bookName,textInput: bookName()">
                     </div>
                     <div class="input-field col s6">
-                        <input id="editAuthor" type="text" placeholder="Author" class="validate" data-bind="value: author">
+<input id="editAuthor" type="text" placeholder="Author" class="validate" data-bind="value: author,textInput: author()">
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="editIsbn" type="number" class="validate" placeholder="Isbn" data-bind="value: isbn">
+<input id="editIsbn" type="number" class="validate" placeholder="Isbn" data-bind="value: isbn,textInput: isbn()">
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="editDescription" class="materialize-textarea" data-bind="value: description"></textarea>
+<textarea id="editDescription" class="materialize-textarea" data-bind="value: description,textInput: description()"></textarea>
                     </div>
                 </div>
                 <div class="row">

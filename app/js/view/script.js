@@ -45,7 +45,7 @@ var ViewModel = function () {
                 type: "POST",
                 crossOrigin: true,
                 contentType: 'application/json; charset=UTF-8',
-                url: "/api/book/",
+                url: "https://andela-resful.herokuapp.com/api/book/",
                 data: JSON.stringify(book),
                 processData: true,
                 dataType: "json"
@@ -64,7 +64,7 @@ var ViewModel = function () {
             type: "DELETE",
             crossOrigin: true,
             contentType: 'application/json; charset=UTF-8',
-            url: "/api/book/" + id,
+            url: "https://andela-resful.herokuapp.com/api/book/" + id,
             dataType: "json",
         }).done(
             //console.log("deleted")
@@ -77,22 +77,44 @@ var ViewModel = function () {
     }
 
     //grab the clicked book for editing
-    self.grabBook = function(item){
-        //console.log(item);
-        // document.getElementById("editName").value = item.name();
-        // document.getElementById("editAuthor").value = item.author();
-        // document.getElementById("editIsbn").value = item.isbn();
-        // document.getElementById("editDescription").value = item.description();
+    self.grabBook = function (item) {
+        localStorage.setItem("id", item.id())
+        self.bookName(item.name());
+        self.author(item.author());
+        self.isbn(item.isbn());
+        self.description(item.description());
+
     }
     //edit function
     self.editBook = function (item) {
-        // var editBook = {
-        //     "name": self.bookName(),
-        //     "author": self.author(),
-        //     "isbn": self.isbn(),
-        //     "description": self.description()
-        // }
-        //console.log(item)
+        console.log(item.bookName())
+        var oldBook = item.bookName();
+        var id = localStorage.getItem("id");
+        if (!self.bookName() || !self.author() || !self.isbn() || !self.description()) {
+            alert("All Edit fields required");
+        } else {
+            //build an object to add to database via API
+            var book = {
+                "name": self.bookName(),
+                "author": self.author(),
+                "isbn": self.isbn(),
+                "description": self.description()
+            }
+            $.ajax({
+                type: "PUT",
+                crossOrigin: true,
+                contentType: 'application/json; charset=UTF-8',
+                url: "https://andela-resful.herokuapp.com/api/book/" + id,
+                data: JSON.stringify(book),
+                processData: true,
+                dataType: "json"
+            }).done(
+               //self.books.replace(item.bookName, book.name)
+               //location.reload(true)
+            ).fail(function errorFn(xhr, status, strErr) {
+                alert('There seems to be an error in editing books')
+            });
+        }
 
     }
 
@@ -102,7 +124,7 @@ var ViewModel = function () {
         type: "GET",
         crossOrigin: true,
         contentType: 'application/json; charset=UTF-8',
-        url: "/api/book/",
+        url: "https://andela-resful.herokuapp.com/api/book/",
         dataType: "json",
     }).done(
         function (allData) {
@@ -112,7 +134,7 @@ var ViewModel = function () {
         }
     ).fail(function errorFn(xhr, status, strErr) {
         alert('There seems to be an error in retrieving books')
-       // console.log('There seems to be an error in retrieving books' + strErr);
+        // console.log('There seems to be an error in retrieving books' + strErr);
     });
 }
 ko.applyBindings(new ViewModel());
