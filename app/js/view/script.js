@@ -45,7 +45,7 @@ var ViewModel = function () {
                 type: "POST",
                 crossOrigin: true,
                 contentType: 'application/json; charset=UTF-8',
-                url: "https://andela-resful.herokuapp.com/api/book/",
+                url: "/api/book/",
                 data: JSON.stringify(book),
                 processData: true,
                 dataType: "json"
@@ -64,7 +64,7 @@ var ViewModel = function () {
             type: "DELETE",
             crossOrigin: true,
             contentType: 'application/json; charset=UTF-8',
-            url: "https://andela-resful.herokuapp.com/api/book/" + id,
+            url: "/api/book/" + id,
             dataType: "json",
         }).done(
             //console.log("deleted")
@@ -104,7 +104,7 @@ var ViewModel = function () {
                 type: "PUT",
                 crossOrigin: true,
                 contentType: 'application/json; charset=UTF-8',
-                url: "https://andela-resful.herokuapp.com/api/book/" + id,
+                url: "/api/book/" + id,
                 data: JSON.stringify(book),
                 processData: true,
                 dataType: "json"
@@ -124,7 +124,7 @@ var ViewModel = function () {
         type: "GET",
         crossOrigin: true,
         contentType: 'application/json; charset=UTF-8',
-        url: "https://andela-resful.herokuapp.com/api/book/",
+        url: "/api/book/",
         dataType: "json",
     }).done(
         function (allData) {
