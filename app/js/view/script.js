@@ -29,6 +29,14 @@ var ViewModel = function () {
     //store books fetched from the API
     self.books = ko.observableArray([]);
 
+    //clear the effect of editing book databinding before adding book
+    self.clear = function(){
+        self.bookName("");
+        self.author("");
+        self.isbn("");
+        self.description("");
+    }
+
     //add book to database via API
     self.addBook = function () {
         if (!self.bookName() || !self.author() || !self.isbn() || !self.description()) {
@@ -109,8 +117,8 @@ var ViewModel = function () {
                 processData: true,
                 dataType: "json"
             }).done(
-               //self.books.replace(item.bookName, book.name)
-               //location.reload(true)
+                //self.books.replace(item.bookName, book.name)
+                //location.reload(true)
             ).fail(function errorFn(xhr, status, strErr) {
                 alert('There seems to be an error in editing books')
             });
