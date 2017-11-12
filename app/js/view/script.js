@@ -30,7 +30,7 @@ var ViewModel = function () {
     self.books = ko.observableArray([]);
 
     //clear the effect of editing book databinding before adding book
-    self.clear = function(){
+    self.clearData = function(){
         self.bookName("");
         self.author("");
         self.isbn("");
@@ -38,7 +38,8 @@ var ViewModel = function () {
     }
 
     //add book to database via API
-    self.addBook = function () {
+    self.addBook = function (item) {
+        //console.log(item)
         if (!self.bookName() || !self.author() || !self.isbn() || !self.description()) {
             alert("All fields required");
         } else {
@@ -86,6 +87,7 @@ var ViewModel = function () {
 
     //grab the clicked book for editing
     self.grabBook = function (item) {
+         //console.log(item)
         localStorage.setItem("id", item.id())
         self.bookName(item.name());
         self.author(item.author());
@@ -95,7 +97,7 @@ var ViewModel = function () {
     }
     //edit function
     self.editBook = function (item) {
-        console.log(item.bookName())
+        //console.log(item.bookName())
         var oldBook = item.bookName();
         var id = localStorage.getItem("id");
         if (!self.bookName() || !self.author() || !self.isbn() || !self.description()) {
@@ -117,8 +119,9 @@ var ViewModel = function () {
                 processData: true,
                 dataType: "json"
             }).done(
+               // alert("Edit was successfull, no time justt refresh"),
                 //self.books.replace(item.bookName, book.name)
-                //location.reload(true)
+               // window.location.reload(true)
             ).fail(function errorFn(xhr, status, strErr) {
                 alert('There seems to be an error in editing books')
             });
